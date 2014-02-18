@@ -1,1 +1,1 @@
-Procfile declares types -> web
+web: sh target/bin/webapp
