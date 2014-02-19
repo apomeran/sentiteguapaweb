@@ -17,9 +17,16 @@
 			<br>
 							<div class="row-fluid user-row">
 								<div class="span1">
-									<img class="img-circle" style="max-width: 300%; margin-top: -30px;	margin-left: 410px;"
+								 <c:if test="${empty product.prodimages[0].url}">
+										  <img class="" style="max-width: 300%; margin-top: -30px;	margin-left: 410px;"
+										src="${ pageContext.request.contextPath}/assets/img/noimage.jpg"			
+									alt="Product Picture">
+     							 </c:if>
+								 <c:if test="${not empty product.prodimages[0].url}">
+								<img class="img-circle" style="max-width: 300%; margin-top: -30px;	margin-left: 410px;"
 										src="${ pageContext.request.contextPath }/webapp${product.prodimages[0].url}${product.prodimages[0].name} "			
 									alt="Product Picture">
+								 </c:if>	
 								</div>
 								<div class="span10">
 									<a href="${ pageContext.request.contextPath }/bin/product/view?id=${product.id}">
@@ -45,9 +52,17 @@
 										<div class="panel-body">
 											<div class="row-fluid">
 												<div class="span3">
-													<img class="img-circle" style="max-width: 154%;	"
-										 src="${ pageContext.request.contextPath }/webapp${product.prodimages[0].url}${product.prodimages[0].name}"
-										 alt="Product Picture">
+												<c:if test="${empty product.prodimages[0].url}">
+														  <img class="" style="max-width: 154%"
+														src="${ pageContext.request.contextPath}/assets/img/noimage.jpg"			
+														alt="Product Picture">
+												 </c:if>
+												 <c:if test="${not empty product.prodimages[0].url}">
+													<img class="img-circle" style="max-width: 154%"
+														src="${ pageContext.request.contextPath }/webapp${product.prodimages[0].url}${product.prodimages[0].name} "			
+														alt="Product Picture">
+												 </c:if>	
+												
 												</div>
 												<div class="span6" style="margin-left:100px">
 													<table class="table table-condensed table-responsive table-user-information">
@@ -156,9 +171,7 @@
 
 <script type="text/javascript">
  function cartAction(i){
- alert(document.getElementById("cartcart" + i).href);
   document.getElementById("cartcart" + i).href += "&quantity=" + document.getElementById("quantity" + i).value + "&colorid=" + document.getElementById("colorid"+ i).value+ "&sizeid=" + document.getElementById("sizeid"+ i).value; 
-   alert(document.getElementById("cartcart" + i).href);
   //window.location.replace(document.getElementById("cartcart" + i).href);
     return false;
 

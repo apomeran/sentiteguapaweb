@@ -57,6 +57,12 @@ public class IndexController extends BaseController {
 
 		return mav;
 	}
+	
+	@RequestMapping(value = { "/aboutus", "/index/aboutus" })
+	public ModelAndView aboutus(HttpSession session) {
+		ModelAndView mav = new ModelAndView("index/aboutus");
+		return mav;
+	}
 
 	@RequestMapping(method = RequestMethod.GET, value = { "/additem",
 			"/index/additem" })

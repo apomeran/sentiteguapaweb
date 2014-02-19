@@ -38,10 +38,14 @@
 		<div id="centralbanner" style="width:100%">
 				<div id="sliderFrame">
 						<div id="slider">
-							<img src="${ pageContext.request.contextPath }/images/slider-1.jpg" />
-							<img src="${ pageContext.request.contextPath }/images/slider-2.jpg" />
-							<img src="${ pageContext.request.contextPath }/images/slider-3.jpg" />
-							<img src="${ pageContext.request.contextPath }/images/slider-4.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/d.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/a.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/b.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/e.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/f.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/g.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/c.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/h.jpg" />
 						</div>
 						<!--Custom navigation buttons on both sides-->
 						<div class="group1-Wrapper">
