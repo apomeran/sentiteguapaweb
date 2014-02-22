@@ -3,7 +3,8 @@
 <c:import url="headerlogin.jsp" />
 <div class='error'>
     <p>
-         El item no puede ser eliminado. Ya que depende de otras entidades
+         Hubo un error al procesar la página. 
+         
     </p>
     <a href='${ pageContext.request.contextPath }/bin/index/list'>Volver al Inicio</a>
 <div>

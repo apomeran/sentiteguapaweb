@@ -13,17 +13,26 @@
 
 <h2>Subir Imagenes</h2>
 <div style="width:500px;padding:20px">
+   	Podes seleccionar las imagenes: 
+	<br><br>
     <input id="fileupload" type="file" name="files[]" data-url="${ pageContext.request.contextPath }/bin/controller/upload${imageType}?id=${item.id}" multiple>
-    <div id="dropzone">Arrastrar fotos aqui</div>
+    <br><br>
+	O podes probar: 
+	<br><br>
+	<div id="dropzone" style="font-size:20px; width:500px">Arrastrar fotos hasta aqui mismo</div>
+	<br><br><br>
     <div id="progress">
         <div style="width: 0%;"></div>
     </div>
-    <table id="uploaded-files">
+	<br><br>
+	
+	Datos de los archivos cargados:
+	<br><br>
+    <table id="uploaded-files" border="1" width="100%" cellspacing="0" height="49">
         <tr>
             <th>Nombre Archivo</th>
             <th>Peso Archivo</th>
             <th>Tipo Archivo</th>
-            <th>Descargar</th>
         </tr>
     </table>
 </div>

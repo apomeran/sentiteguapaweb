@@ -20,20 +20,22 @@
                 <dt>Razon Social</dt>
                     <dd>${order.customerName}</dd>
                 <dt>Total:</dt>
-                    <dd>$${order.total}.-</dd>
+                    <dd>$${order.total}0.-</dd>
              	<dt>Detalle:</dt>
                     
                	<c:forEach var="line" items="${order.orderLine}">
+				
                	<div style="margin-bottom:10px">
-				    <dd>Producto: ${line.product.name}</dd>
-				    <dd>Precio: $${line.product.price} .-</dd>
-				    <dd>Cantidad: ${line.quantity} unidad(es)</dd>
-				    <dd>Color:</dd>
-				    <c:forEach var="color" items="${line.product.colors}">
-				       <dd>- ${color.name}</dd>
-				    </c:forEach>
-				    <dd>Talle: ${line.size} </dd>
-				   <dd> -----</dd>
+			
+				<dd>Linea ${line.id} </dd>
+				<br>
+				    <dd><strong>Producto: </strong>${line.product.name}	</dd>
+				    <dd><strong>Precio: </strong>$${line.product.price} .-</dd>
+				    <dd><strong>Cantidad:</strong> ${line.quantity} unidad(es)</dd>
+				    <dd><strong>Color:</strong> - ${line.prodcolor.name} (ID ${line.prodcolor.id})</dd>
+				    <dd><strong>Talle: </strong>${line.size} </dd>
+				   <br>
+				   <dd>-----</dd>
 				</div>  
 				  
 				</c:forEach>
