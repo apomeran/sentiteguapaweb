@@ -6,7 +6,6 @@
 <c:import url="../header.jsp" />
 
 <h2 class="admin-title"> Emitir Pedido </h2> 
-
  
 <table class="table table-hover">
 	
@@ -34,7 +33,7 @@
 						<td width="30" >${count.count}</td>
 						<td width="502" class="Estilo2">
 							 
-			                    ${line.product.name} (Cod: ${line.product.id})
+			                    ${line.product.name} (Cod: ${line.product.code})
 							</td>
 						<td>
 								 ${line.prodcolor.name} 
@@ -141,11 +140,21 @@
                     </p>
                 </div>
             </div>
+            <div class="loginUsername control-group">
+                <label class="control-label">Expreso:</label>
+                <div class="controls">
+                     <p>
+                        <form:input path="express" />
+                    </p>
+                </div>
+            </div>
             
 			<br><br>
 			<div class="control-group controls">
-			
-                <input class="btn btn-info" type="submit" value="Enviar Pedido"> <p><a href="${ pageContext.request.contextPath }/bin/index/killcheckout"> Vaciar Carrito </a> </p>
+
+                <input class="btn btn-info" type="submit" value="Enviar Pedido">
+				
+				<p><a href="${ pageContext.request.contextPath }/bin/index/killcheckout"> Vaciar Carrito </a> </p>
 
             </div>
 

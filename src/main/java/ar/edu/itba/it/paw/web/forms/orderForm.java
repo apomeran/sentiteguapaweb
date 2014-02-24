@@ -17,6 +17,7 @@ public class orderForm {
 	private String email;
 	private String cuit;
 	private String ivacondition;
+	private String express;
 	private List<OrderLine> orderLine = new ArrayList<OrderLine>();
 
 	public orderForm() {
@@ -25,7 +26,7 @@ public class orderForm {
 
 	public Order build() {
 		return new Order(customerName, address, city, state, phone, email,
-				cuit, ivacondition, orderLine, new Date());
+				cuit, ivacondition, orderLine, new Date(), express);
 	}
 
 	public String getCustomerName() {
@@ -98,5 +99,13 @@ public class orderForm {
 
 	public void setOrderLine(List<OrderLine> orderLine) {
 		this.orderLine = orderLine;
+	}
+
+	public String getExpress() {
+		return express;
+	}
+
+	public void setExpress(String express) {
+		this.express = express;
 	}
 }

@@ -19,6 +19,7 @@ import ar.edu.itba.it.paw.domain.orders.OrderLineRepo;
 import ar.edu.itba.it.paw.domain.orders.OrderRepo;
 import ar.edu.itba.it.paw.domain.products.ProductRepo;
 import ar.edu.itba.it.paw.utils.EnhancedModelAndView;
+import ar.edu.itba.it.paw.utils.MailSender;
 import ar.edu.itba.it.paw.web.forms.checkoutForm;
 import ar.edu.itba.it.paw.web.forms.orderForm;
 import ar.edu.itba.it.paw.web.validator.CheckOutFormValidator;
@@ -56,6 +57,7 @@ public class OrderController extends BaseController {
 		List<Order> o = orderRepo.list();
 		Collections.sort(o);
 		mav.addObject("orders", o);
+
 		return mav;
 	}
 
@@ -119,11 +121,93 @@ public class OrderController extends BaseController {
 		EnhancedModelAndView mav = generateContext("Orden Enviada", true, true);
 		mav.addObject("order", o);
 		mav.setViewName("orders/success");
+
+		MailSender.send(generateCustomerMail(o), o.getEmail(),
+				"SentiteGuapa - Pedido OnLine Nº" + o.getId());
+		MailSender.send(
+				generateManagerMail(o),
+				"sentiteguapamoda@gmail.com",
+				"SentiteGuapa - Realizaron un nuevo Pedido OnLine Nº"
+						+ o.getId());
+
 		emptyCart(session);
 		return mav;
 	}
-	
-	
+
+	public String generateManagerMail(Order o) {
+		String mail = "Administrador, se recibio un pedido de "
+				+ o.getCustomerName() + "!! \n";
+		mail += "Los datos enviados fueron: \n";
+		mail += "\n -- Cuit: " + o.getCuit();
+		mail += "\n -- Direccion: " + o.getAddress();
+		mail += "\n -- Ciudad: " + o.getCity() + " - " + o.getState();
+		mail += "\n -- Modo Envio: " + o.getExpress();
+		mail += "\n -- Telefono: " + o.getPhone();
+		mail += "\n -- Condicion IVA: " + o.getIvacondition();
+
+		mail += "\n\n\n A continuacion mostraremos el detalle del pedido del cliente: \n\n";
+		mail += "Pedido Nº: " + o.getId() + "\n";
+		mail += "Total de la orden: $" + o.getTotal() + "0.- \n\n";
+		int i = 1;
+		for (OrderLine ol : o.getOrderLine()) {
+			mail += "\n\n\n -- Linea N° " + i++ + " --";
+			mail += "\n\n Producto: " + ol.getProduct().getName() + " - Cod ("
+					+ ol.getProduct().getCode() + ")";
+			mail += "\n Cantidad: " + ol.getQuantity() + " Unidad(es)";
+			mail += "\n Precio Unitario: $" + ol.getProduct().getPrice()
+					+ "0.-";
+			if (ol.getSize() != null && ol.getSize() != "")
+				mail += "\n Talle: " + ol.getSize();
+			if (ol.getProdcolor() != null)
+				mail += "\n Color: " + ol.getProdcolor().getName() + " - Cod: "
+						+ ol.getProdcolor().getId();
+			else
+				mail += "\n Color: No especificado";
+			mail += "\n Subtotal: $" + ol.getQuantity()
+					* ol.getProduct().getPrice() + "0.-";
+		}
+
+		mail += "\n\n SentiteGuapa.com";
+		return mail;
+	}
+
+	public String generateCustomerMail(Order o) {
+		String mail = "Hola " + o.getCustomerName() + "!! \n";
+		mail += "Gracias por emitir tu pedido en SentiteGuapa\n\n";
+		mail += "Tus datos enviados son: \n";
+		mail += "\n -- Cuit: " + o.getCuit();
+		mail += "\n -- Direccion: " + o.getAddress();
+		mail += "\n -- Ciudad: " + o.getCity() + " - " + o.getState();
+		mail += "\n -- Modo Envio: " + o.getExpress();
+		mail += "\n -- Telefono: " + o.getPhone();
+		mail += "\n -- Condicion IVA: " + o.getIvacondition();
+
+		mail += "\n\n\n A continuacion mostraremos el detalle de tu pedido: \n\n";
+		mail += "Pedido Nº: " + o.getId() + "\n";
+		mail += "Total de la orden: $" + o.getTotal() + "0.- \n\n";
+		int i = 1;
+		for (OrderLine ol : o.getOrderLine()) {
+			mail += "\n\n\n -- Linea N° " + i++ + " --";
+			mail += "\n\n Producto: " + ol.getProduct().getName() + " - Cod ("
+					+ ol.getProduct().getCode() + ")";
+			mail += "\n Cantidad: " + ol.getQuantity() + " Unidad(es)";
+			mail += "\n Precio Unitario: $" + ol.getProduct().getPrice()
+					+ "0.-";
+			if (ol.getSize() != null && ol.getSize() != "")
+				mail += "\n Talle: " + ol.getSize();
+			if (ol.getProdcolor() != null)
+				mail += "\n Color: " + ol.getProdcolor().getName() + " - Cod: "
+						+ ol.getProdcolor().getId();
+			else
+				mail += "\n Color: No especificado";
+			mail += "\n Subtotal: $" + ol.getQuantity()
+					* ol.getProduct().getPrice() + "0.-";
+		}
+		mail += "\n\n\n\n Ante cualquier duda no dude contactarse con nosotros a traves de este mail: sentiteguapamoda@gmail.com \n\n";
+		mail += "Nuestra direccion y telefono: \n Av. Avellaneda 3069 Flores - C.A.B.A Argentina - Tel: 114612-2317";
+		mail += "\n\n SentiteGuapa.com";
+		return mail;
+	}
 
 	@RequestMapping(method = RequestMethod.POST, value = { "/order",
 			"/index/order" })
@@ -138,15 +222,26 @@ public class OrderController extends BaseController {
 		for (OrderLine ol : orderForm.getOrderLine()) {
 
 			if (ol.getQuantity() > 0) {
+				ol.setProdcolor(null);
 				orderLinesCount++;
 				ol.setOrder(order);
 				orderLineRepo.add(ol);
+
 			}
 		}
 		if (orderLinesCount > 0)
 			orderRepo.add(order);
 		ModelAndView mav = new ModelAndView("orders/success");
 		mav.addObject("order", order);
+		MailSender.send(generateCustomerMail(order), order.getEmail(),
+				"SentiteGuapa - Pedido OnLine Nº" + order.getId());
+
+		MailSender.send(
+				generateManagerMail(order),
+				"sentiteguapamoda@gmail.com",
+				"SentiteGuapa - Realizaron un nuevo Pedido OnLine Nº"
+						+ order.getId());
+
 		return mav;
 	}
 }

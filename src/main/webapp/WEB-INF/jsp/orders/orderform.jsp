@@ -90,6 +90,15 @@
                     </p>
                 </div>
             </div>
+            
+           <div class="loginUsername control-group">
+                <label class="control-label">Expreso:</label>
+                <div class="controls">
+                     <p>
+                        <form:input path="express" />
+                    </p>
+                </div>
+            </div>
             <div class="loginUsername control-group">
                 <label class="control-label">Pedido:</label>
                 <div class="controls">

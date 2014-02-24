@@ -27,6 +27,7 @@ public class Order extends PersistentEntity implements Comparable<Order> {
 	private String email;
 	private String cuit;
 	private String ivacondition;
+	private String express;
 	@OneToMany(mappedBy = "order")
 	@Cascade(value = { CascadeType.ALL, CascadeType.SAVE_UPDATE,
 			CascadeType.DELETE })
@@ -34,7 +35,7 @@ public class Order extends PersistentEntity implements Comparable<Order> {
 
 	public Order(String customerName, String address, String city,
 			String state, String phone, String email, String cuit,
-			String ivacondition, List<OrderLine> orderLine, Date orderDate) {
+			String ivacondition, List<OrderLine> orderLine, Date orderDate, String express) {
 		this.setAddress(address);
 		this.setCity(city);
 		this.setCuit(cuit);
@@ -45,6 +46,7 @@ public class Order extends PersistentEntity implements Comparable<Order> {
 		this.setState(state);
 		this.setPhone(phone);
 		this.setOrderDate(orderDate);
+		this.setExpress(express);
 	}
 
 	Order() {
@@ -146,6 +148,14 @@ public class Order extends PersistentEntity implements Comparable<Order> {
 	public void addItem(Product product, int quantity, String size,
 			ProductColor prodcolor) {
 		orderLine.add(new OrderLine(product, quantity, size, prodcolor));
+	}
+
+	public String getExpress() {
+		return express;
+	}
+
+	public void setExpress(String express) {
+		this.express = express;
 	}
 
 }

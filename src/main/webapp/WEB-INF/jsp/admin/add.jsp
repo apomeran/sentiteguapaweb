@@ -32,11 +32,20 @@
 		                          </div>
 		                     </div>
 		                     <div class="loginUsername control-group">
+		                		<label class="control-label">Codigo interno:</label>
+		              			  <div class="controls">
+			                 		   <p>
+			                   		     <form:input path="code" />
+			                  		   </p>
+		                          </div>
+		                     </div>
+		                     <div class="loginUsername control-group">
 		                		<label class="control-label">Categorias:</label>
 		              			  <div class="controls">
 			                 		   <p>
 			                 		   		<c:forEach items="${categoriesList}" var="cat">
-			                 		   			${cat.name} <form:checkbox path="categories"  value="${cat.id}" />
+			                 		   			<strong>${cat.name} </strong><form:checkbox path="categories"  value="${cat.id}" />
+			                 		   			<br>
 			                 		   		</c:forEach>
 			                  		   </p>
 		                          </div>
@@ -47,7 +56,8 @@
 		              			  <div class="controls">
 			                 		   <p>
 			                 		   		<c:forEach items="${sizesList}" var="size">
-			                 		   			${size.name} (${size.code}) <form:checkbox path="sizes"  value="${size.id}" />
+			                 		   		<strong>	${size.name} (${size.code}) </strong><form:checkbox path="sizes"  value="${size.id}" />
+			                 		   			<br>
 			                 		   		</c:forEach>
 			                  		   </p>
 		                          </div>
@@ -69,7 +79,7 @@
 			                  		   </p>
 		                          </div>
 		                     </div>
-		                      <div class="loginUsername control-group">
+		                     <div class="loginUsername control-group">
 		                		<label class="control-label">Season:</label>
 		              			  <div class="controls">
 			                 		   <p>
@@ -89,7 +99,7 @@
 		                		<label class="control-label">Stock:</label>
 		              			  <div class="controls">
 			                 		   <p>
-			                   		     <form:input path="stock" value="" />
+			                   		     <form:input path="stock" value="0" />
 			                  		   </p>
 		                          </div>
 		                     </div>
@@ -98,7 +108,8 @@
 		              			  <div class="controls">
 			                 		   <p>
 			                 		   		<c:forEach items="${colorsList}" var="color">
-			                 		   			${color.name} <form:checkbox path="colors"  value="${color.id}" />
+			                 		   			<strong>${color.name} </strong><form:checkbox path="colors"  value="${color.id}" />
+			                 		   			<br>
 			                 		   		</c:forEach>
 			                  		   </p>
 		                          </div>

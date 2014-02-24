@@ -44,8 +44,6 @@
 							<img src="${ pageContext.request.contextPath }/assets/slider/e.jpg" />
 							<img src="${ pageContext.request.contextPath }/assets/slider/f.jpg" />
 							<img src="${ pageContext.request.contextPath }/assets/slider/g.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/c.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/h.jpg" />
 						</div>
 						<!--Custom navigation buttons on both sides-->
 						<div class="group1-Wrapper">

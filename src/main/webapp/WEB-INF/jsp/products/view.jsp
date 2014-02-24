@@ -76,6 +76,9 @@
 						    </dd>
 						</c:forEach>
 						<br><br>
+						<dt>Codigo Producto</dt>
+							<dd>Art n° ${product.code}</dd>
+
 						<dt>Temporada</dt>
 							<dd>${product.season}</dd>
 						<dt>Talles Disponibles</dt>
@@ -152,6 +155,7 @@
 </script>
 
 <div>
-
+<hr>
+	<br><br><br><br><br><br><br><br>	<br><br><br><br><br><br><br><br>
 <c:import url="../footer.jsp" />
 

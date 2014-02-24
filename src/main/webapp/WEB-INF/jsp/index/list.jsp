@@ -34,7 +34,8 @@
 									 </a>
 									<br>
 									<span class="text-muted"> <div style="font-size: 34px; font-family: Tangerine; margin-left:25px">Precio: <strong>$${product.price}0.-</strong></div></span>
-									<span class="text-muted"> <div style="font-size: 24px; font-family: Tangerine; margin-left:37px;margin-top:10px">-Temporada  <strong>${product.season} </strong> 2014-</div></span>
+									<span class="text-muted"> <div style="font-size: 26px; font-family: Tangerine; margin-left:37px;margin-top:10px">-Temporada  <strong>${product.season} </strong> 2014-</div></span>
+									<span class="text-muted"> <div style="font-size: 24px; font-family: Tangerine; margin-left:57px;margin-top:10px">Codigo Producto: <strong>${product.code} </strong> </div></span>
 
 								</div>
 								<div class="span1 dropdown-user" data-for=".${product.id}class">

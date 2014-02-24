@@ -31,6 +31,7 @@ public class Product extends PersistentEntity {
 	@ManyToMany
 	private List<ProductColor> colors;
 	private int stock;
+	private int code;
 
 	@Enumerated(EnumType.STRING)
 	private Unisex unisex = Unisex.MUJER; // By Default
@@ -40,7 +41,7 @@ public class Product extends PersistentEntity {
 
 	public Product(String prodName, Float prodPrice, Set<Category> cat,
 			List<ProductColor> colors, int stock, Unisex unisex, Season season,
-			List<ClotheSize> sizes) {
+			List<ClotheSize> sizes, int code) {
 		setName(prodName);
 		setPrice(prodPrice);
 		setCategories(cat);
@@ -49,6 +50,7 @@ public class Product extends PersistentEntity {
 		setUnisex(unisex);
 		setSeason(season);
 		setSizes(sizes);
+		setCode(code);
 	}
 
 	public Product() {
@@ -128,6 +130,14 @@ public class Product extends PersistentEntity {
 
 	public void setSizes(List<ClotheSize> sizes) {
 		this.sizes = sizes;
+	}
+
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 }

@@ -14,6 +14,7 @@ public class checkoutForm {
 	private String email;
 	private String cuit;
 	private String ivacondition;
+	private String express;
 
 	public checkoutForm() {
 	}
@@ -28,6 +29,7 @@ public class checkoutForm {
 		o.setPhone(phone);
 		o.setState(state);
 		o.setOrderDate(new Date());
+		o.setExpress(express);
 		return o;
 	}
 
@@ -93,6 +95,14 @@ public class checkoutForm {
 
 	public void setIvacondition(String ivacondition) {
 		this.ivacondition = ivacondition;
+	}
+
+	public String getExpress() {
+		return express;
+	}
+
+	public void setExpress(String express) {
+		this.express = express;
 	}
 
 }

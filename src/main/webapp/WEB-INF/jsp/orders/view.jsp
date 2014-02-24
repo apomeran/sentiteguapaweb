@@ -21,18 +21,40 @@
                     <dd>${order.customerName}</dd>
                 <dt>Total:</dt>
                     <dd>$${order.total}0.-</dd>
+                <dt>Direccion:</dt>
+                    <dd>${order.address} - ${order.state}  </dd>
+                <dt>Telefono:</dt>
+                    <dd>${order.phone}</dd>
+                <dt>Email:</dt>
+                    <dd>${order.email}</dd>
+                <dt>Expreso:</dt>
+                    <dd>${order.express}</dd>
+                <dt>Iva:</dt>
+                    <dd>${order.ivacondition}</dd>
+                <dt>Cuit:</dt>
+                    <dd>${order.cuit}</dd>    
+                <br>
              	<dt>Detalle:</dt>
                     
                	<c:forEach var="line" items="${order.orderLine}">
 				
                	<div style="margin-bottom:10px">
 			
-				<dd>Linea ${line.id} </dd>
+				<dd>Linea ID: ${line.id} </dd>
 				<br>
+					<dd>
+					<img width="68" height="87" src="${ pageContext.request.contextPath }/webapp${line.product.prodimages[0].url}${line.product.prodimages[0].name}">
+					</dd>
+					
 				    <dd><strong>Producto: </strong>${line.product.name}	</dd>
+				    <dd><strong>Codigo Producto: </strong>${line.product.code}	</dd>
 				    <dd><strong>Precio: </strong>$${line.product.price} .-</dd>
 				    <dd><strong>Cantidad:</strong> ${line.quantity} unidad(es)</dd>
-				    <dd><strong>Color:</strong> - ${line.prodcolor.name} (ID ${line.prodcolor.id})</dd>
+				    <dd><strong>Color:</strong> - ${line.prodcolor.name} (ID ${line.prodcolor.id}) </dd>
+				    <dd>
+					 <img width="40" height="40" src="${ pageContext.request.contextPath }/webapp${line.prodcolor.colorimages[0].url}${line.prodcolor.colorimages[0].name}">
+					</dd>
+					<br>
 				    <dd><strong>Talle: </strong>${line.size} </dd>
 				   <br>
 				   <dd>-----</dd>

@@ -25,6 +25,14 @@
             </div>
             <c:choose>
 				  <c:when test="${showingProductForm}">
+				     <div class="loginUsername control-group">
+                		<label class="control-label">Codigo Interno:</label>
+              			  <div class="controls">
+	                 		   <p>
+	                   		     <form:input path="code" value="${item.code}" />
+	                  		   </p>
+                          </div>
+                     </div>
             		 <div class="loginUsername control-group">
                 		<label class="control-label">Precio:</label>
               			  <div class="controls">
@@ -38,10 +46,12 @@
               			  <div class="controls">
 	                 		   <p>
 	                 		   		<c:forEach items="${categoriesList}" var="cat">
-	                 		   			${cat.name} - <form:checkbox path="categories" checked="checked" value="${cat.id}" />
+	                 		   			<strong>${cat.name} - </strong><form:checkbox path="categories" checked="checked" value="${cat.id}" />
+	                 		   			<br>
 	                 		   		</c:forEach>
 	                 		   		<c:forEach items="${categoriesListUnchecked}" var="cat">
-	                 		   			${cat.name} - <form:checkbox path="categories"  value="${cat.id}" />
+	                 		   		<strong>	${cat.name} - </strong><form:checkbox path="categories"  value="${cat.id}" />
+	                 		   			<br>
 	                 		   		</c:forEach>
 	                  		   </p>
                           </div>
@@ -51,10 +61,12 @@
               			  <div class="controls">
 	                 		   <p>
 	                 		   		<c:forEach items="${sizesList}" var="size">
-	                 		   			${size.name} - <form:checkbox path="sizes" checked="checked" value="${size.id}" />
+	                 		   		<strong>	${size.name} - </strong><form:checkbox path="sizes" checked="checked" value="${size.id}" />
+	                 		   			<br>
 	                 		   		</c:forEach>
 	                 		   		<c:forEach items="${sizesListUnchecked}" var="size">
-	                 		   			${size.name} - <form:checkbox path="sizes"  value="${size.id}" />
+	                 		   			<strong>${size.name} - </strong><form:checkbox path="sizes"  value="${size.id}" />
+	                 		   			<br>
 	                 		   		</c:forEach>
 	                  		   </p>
                           </div>
@@ -104,10 +116,12 @@
               			  <div class="controls">
 	                 		   <p>
 	                 		   		<c:forEach items="${colorsList}" var="color">
-	                 		   			${color.name} - <form:checkbox path="colors" checked="checked" value="${color.id}" />
+	                 		   			<strong>${color.name} - </strong><form:checkbox path="colors" checked="checked" value="${color.id}" />
+	                 		   			<br>
 	                 		   		</c:forEach>
 	                 		   		<c:forEach items="${colorsListUnchecked}" var="color">
-	                 		   			${color.name} - <form:checkbox path="colors"  value="${color.id}" />
+	                 		   			<strong>${color.name} - </strong><form:checkbox path="colors"  value="${color.id}" />
+	                 		   			<br>
 	                 		   		</c:forEach>
 	                  		   </p>
                           </div>

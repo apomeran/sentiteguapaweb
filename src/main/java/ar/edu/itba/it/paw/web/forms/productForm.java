@@ -22,6 +22,7 @@ public class productForm {
 	private Season season;
 	private Unisex unisex;
 	private List<ClotheSize> sizes;
+	private int code;
 
 	public Set<Category> getCategories() {
 		return categories;
@@ -60,7 +61,7 @@ public class productForm {
 
 	public Product build() {
 		return new Product(name, price, categories, colors, stock, unisex,
-				season, sizes);
+				season, sizes, code);
 	}
 
 	public List<ProductColor> getColors() {
@@ -101,6 +102,14 @@ public class productForm {
 
 	public void setSizes(List<ClotheSize> sizes) {
 		this.sizes = sizes;
+	}
+
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 }

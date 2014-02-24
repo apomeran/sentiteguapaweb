@@ -69,7 +69,7 @@ public abstract class BaseController {
 
 	public void setCart(HttpSession session) {
 		session.setAttribute("cartOrder", new Order("", "", "", "", "", "", "",
-				"", new ArrayList<OrderLine>(), null));
+				"", new ArrayList<OrderLine>(), null,null));
 	}
 
 	public Order getCart(HttpSession session) {
