@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,7 @@ import ar.edu.itba.it.paw.domain.orders.OrderLineRepo;
 import ar.edu.itba.it.paw.domain.orders.OrderRepo;
 import ar.edu.itba.it.paw.domain.products.ProductRepo;
 import ar.edu.itba.it.paw.utils.EnhancedModelAndView;
-import ar.edu.itba.it.paw.utils.MailSender;
+import ar.edu.itba.it.paw.utils.MailMail;
 import ar.edu.itba.it.paw.web.forms.checkoutForm;
 import ar.edu.itba.it.paw.web.forms.orderForm;
 import ar.edu.itba.it.paw.web.validator.CheckOutFormValidator;
@@ -121,14 +123,22 @@ public class OrderController extends BaseController {
 		EnhancedModelAndView mav = generateContext("Orden Enviada", true, true);
 		mav.addObject("order", o);
 		mav.setViewName("orders/success");
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"Spring-Mail.xml");
+		MailMail mm = (MailMail) context.getBean("mailMail");
+		mm.sendMail("noreply.sentiteguapa@gmail.com", o.getEmail(),
+				"Sentite Guapa - Contacto Online", generateCustomerMail(o));
+		mm.sendMail("noreply.sentiteguapa@gmail.com", o.getEmail(),
+				"Sentite Guapa - Hicieron un pedido Online",
+				generateManagerMail(o));
 
-		MailSender.send(generateCustomerMail(o), o.getEmail(),
-				"SentiteGuapa - Pedido OnLine Nº" + o.getId());
-		MailSender.send(
-				generateManagerMail(o),
-				"sentiteguapamoda@gmail.com",
-				"SentiteGuapa - Realizaron un nuevo Pedido OnLine Nº"
-						+ o.getId());
+		// MailSender.send(generateCustomerMail(o), o.getEmail(),
+		// "SentiteGuapa - Pedido OnLine Nº" + o.getId());
+		// MailSender.send(
+		// generateManagerMail(o),
+		// "sentiteguapamoda@gmail.com",
+		// "SentiteGuapa - Realizaron un nuevo Pedido OnLine Nº"
+		// + o.getId());
 
 		emptyCart(session);
 		return mav;
@@ -233,15 +243,22 @@ public class OrderController extends BaseController {
 			orderRepo.add(order);
 		ModelAndView mav = new ModelAndView("orders/success");
 		mav.addObject("order", order);
-		MailSender.send(generateCustomerMail(order), order.getEmail(),
-				"SentiteGuapa - Pedido OnLine Nº" + order.getId());
-
-		MailSender.send(
-				generateManagerMail(order),
-				"sentiteguapamoda@gmail.com",
-				"SentiteGuapa - Realizaron un nuevo Pedido OnLine Nº"
-						+ order.getId());
-
+		// MailSender.send(generateCustomerMail(order), order.getEmail(),
+		// "SentiteGuapa - Pedido OnLine Nº" + order.getId());
+		//
+		// MailSender.send(
+		// generateManagerMail(order),
+		// "sentiteguapamoda@gmail.com",
+		// "SentiteGuapa - Realizaron un nuevo Pedido OnLine Nº"
+		// + order.getId());
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"Spring-Mail.xml");
+		MailMail mm = (MailMail) context.getBean("mailMail");
+		mm.sendMail("noreply.sentiteguapa@gmail.com", order.getEmail(),
+				"Sentite Guapa - Contacto Online", generateCustomerMail(order));
+		mm.sendMail("noreply.sentiteguapa@gmail.com", "sentiteguapamoda@gmail.com",
+				"Sentite Guapa - Hicieron un pedido Online",
+				generateManagerMail(order));
 		return mav;
 	}
 }

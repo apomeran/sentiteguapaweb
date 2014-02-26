@@ -27,7 +27,6 @@ import ar.edu.itba.it.paw.domain.products.ProductColorRepo;
 import ar.edu.itba.it.paw.domain.products.ProductRepo;
 import ar.edu.itba.it.paw.domain.products.Season;
 import ar.edu.itba.it.paw.domain.products.Unisex;
-import ar.edu.itba.it.paw.utils.MailSender;
 import ar.edu.itba.it.paw.web.forms.productForm;
 
 @Controller

@@ -4,7 +4,6 @@
 	version="2.4">
 
 
-	
  	<!-- <servlet> 
 		<servlet-name>homeRedirectServlet</servlet-name> 
 		<servlet-class>ar.edu.itba.it.paw.web.HomeRedirectServlet</servlet-class> 

@@ -9,7 +9,9 @@
          http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<context:component-scan base-package="ar.edu.itba.it.paw" />
+	
 
+	
 	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" /> 
 
 	<bean id="viewNameTranslator" class="org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator" />
@@ -37,5 +39,6 @@
     <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	
 	<import resource="classpath:data.xml"/>
+	<import resource="classpath:Spring-Mail.xml"/>
 
 </beans>
