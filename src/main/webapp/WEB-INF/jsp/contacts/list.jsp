@@ -19,7 +19,7 @@
 			</td>
 			<td><strong>Email: </strong><c:out value="${contact.email}"/></td>
 			<td><div><strong>Mensaje:</strong> <c:out value="${contact.message}"/></div></td>
-			<td><a href="${ pageContext.request.contextPath}/bin/admin/contact/delete?id=${contact.id}"><img class="panelicon" style="width:20px" src="/sentite/assets/img/deleteicon.png"/></a> </td> 
+			<td><a href="${ pageContext.request.contextPath}/bin/admin/contact/delete?id=${contact.id}"><img class="panelicon" style="width:20px" src="/s/assets/img/deleteicon.png"/></a> </td> 
 			
 		</tr>
 		</c:forEach>

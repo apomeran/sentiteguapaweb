@@ -32,7 +32,7 @@
 				     <c:when test="${indexadmin}">
 				     </c:when>
 				     <c:otherwise>
-				     	<a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/add"><img class="panelicon" src="/sentite/assets/img/addicon.png"/> Crear  ${itemTitle}</a>
+				     	<a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/add"><img class="panelicon" src="/s/assets/img/addicon.png"/> Crear  ${itemTitle}</a>
 				     </c:otherwise>
 				 </c:choose>
 	 </c:otherwise>
@@ -57,32 +57,32 @@
 				     Precio: <strong>$ <c:out value="${item.price}"/>.-</strong>
 				  </c:when>
 				</c:choose>
-				<div style="float:right;"><a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/edit?id=${item.id}"> <img class="panelicon" src="/sentite/assets/img/editicon.png"/> Editar </a>
+				<div style="float:right;"><a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/edit?id=${item.id}"> <img class="panelicon" src="/s/assets/img/editicon.png"/> Editar </a>
 				<c:choose>
 					<c:when test="${showingCategories or showingColors }">
 					<c:if test="${fn:length(item.products) eq 0}">
-					  <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/delete?id=${item.id}"><img class="panelicon" src="/sentite/assets/img/deleteicon.png"/> Eliminar </a>  
+					  <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/delete?id=${item.id}"><img class="panelicon" src="/s/assets/img/deleteicon.png"/> Eliminar </a>  
 					</c:if>
 					</c:when>
 					<c:otherwise>
-					 <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/delete?id=${item.id}"><img class="panelicon" src="/sentite/assets/img/deleteicon.png"/> Eliminar </a>  
+					 <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/delete?id=${item.id}"><img class="panelicon" src="/s/assets/img/deleteicon.png"/> Eliminar </a>  
 					</c:otherwise>
 				</c:choose>
 				<c:choose>
 				
 					<c:when test="${showingCategories}">
 						<c:if test="${item.numberPhotos gt 0}">
-							  <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/imagecategorylist?id=${item.id}"><img class="panelicon" src="/sentite/assets/img/imgicon.jpg"/> Ver Imagenes (${item.numberPhotos}) </a>  
+							  <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/imagecategorylist?id=${item.id}"><img class="panelicon" src="/s/assets/img/imgicon.jpg"/> Ver Imagenes (${item.numberPhotos}) </a>  
 						</c:if>
 					</c:when>
 					<c:when test="${showingColors}">
 						<c:if test="${fn:length(item.colorimages) gt 0}">
-							  <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/imagecolorlist?id=${item.id}"><img class="panelicon" src="/sentite/assets/img/imgicon.jpg"/> Ver Imagenes (${fn:length(item.colorimages)}) </a>  
+							  <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/imagecolorlist?id=${item.id}"><img class="panelicon" src="/s/assets/img/imgicon.jpg"/> Ver Imagenes (${fn:length(item.colorimages)}) </a>  
 						</c:if>
 					</c:when>
 					<c:when test="${showingProducts}">
 						<c:if test="${fn:length(item.prodimages) gt 0}">
-							  <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/imageprodlist?id=${item.id}"><img class="panelicon" src="/sentite/assets/img/imgicon.jpg"/> Ver Imagenes (${fn:length(item.prodimages)}) </a>  
+							  <a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/imageprodlist?id=${item.id}"><img class="panelicon" src="/s/assets/img/imgicon.jpg"/> Ver Imagenes (${fn:length(item.prodimages)}) </a>  
 						</c:if>
 					</c:when>
 				</c:choose>
@@ -100,7 +100,7 @@
 	     <c:when test="${indexadmin}">
 	     </c:when>
 	     <c:otherwise>
-	     	<a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/add"><img class="panelicon" src="/sentite/assets/img/addicon.png"/> Crear ${itemTitle} </a>
+	     	<a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/add"><img class="panelicon" src="/s/assets/img/addicon.png"/> Crear ${itemTitle} </a>
 	     </c:otherwise>
 	 </c:choose>	
 <c:import url="../footer.jsp" />

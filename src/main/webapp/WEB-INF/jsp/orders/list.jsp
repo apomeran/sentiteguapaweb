@@ -20,7 +20,7 @@
 			<td>Direccion:<c:out value="${order.address}"/></td>
 			<td>Total: <c:out value="$${order.total}.-"/></td>
 			<td><a href='${ pageContext.request.contextPath }/bin/admin/order/view?id=${order.id}'>Ver Detalle</a></td>
-			<td><a href="${ pageContext.request.contextPath}/bin/admin/order/delete?id=${order.id}"><img class="panelicon" style="width:20px" src="/sentite/assets/img/deleteicon.png"/></a> </td> 
+			<td><a href="${ pageContext.request.contextPath}/bin/admin/order/delete?id=${order.id}"><img class="panelicon" style="width:20px" src="/s/assets/img/deleteicon.png"/></a> </td> 
 			
 		</tr>
 		</c:forEach>
