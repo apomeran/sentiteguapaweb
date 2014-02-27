@@ -128,7 +128,7 @@ public class OrderController extends BaseController {
 		MailMail mm = (MailMail) context.getBean("mailMail");
 		mm.sendMail("noreply.sentiteguapa@gmail.com", o.getEmail(),
 				"Sentite Guapa - Contacto Online", generateCustomerMail(o));
-		mm.sendMail("noreply.sentiteguapa@gmail.com", o.getEmail(),
+		mm.sendMail("noreply.sentiteguapa@gmail.com", "sentiteguapamoda@gmail.com",
 				"Sentite Guapa - Hicieron un pedido Online",
 				generateManagerMail(o));
 
