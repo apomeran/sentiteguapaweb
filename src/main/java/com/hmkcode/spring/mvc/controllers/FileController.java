@@ -83,42 +83,45 @@ public class FileController {
 
 			// 2.1 get next MultipartFile
 			mpf = request.getFile(itr.next());
+
 			System.out.println(mpf.getOriginalFilename() + " uploaded! "
 					+ files.size());
+			if (mpf.getContentType().contains("image")) {
+				// 2.2 if files > 10 remove the first from the list
+				if (files.size() >= 10)
+					files.pop();
 
-			// 2.2 if files > 10 remove the first from the list
-			if (files.size() >= 10)
-				files.pop();
+				// 2.3 create new fileMeta
+				fileMeta = new FileMeta();
+				fileMeta.setFileName(mpf.getOriginalFilename());
+				fileMeta.setFileSize(mpf.getSize() / 1024 + " Kb");
+				fileMeta.setFileType(mpf.getContentType());
 
-			// 2.3 create new fileMeta
-			fileMeta = new FileMeta();
-			fileMeta.setFileName(mpf.getOriginalFilename());
-			fileMeta.setFileSize(mpf.getSize() / 1024 + " Kb");
-			fileMeta.setFileType(mpf.getContentType());
+				try {
+					fileMeta.setBytes(mpf.getBytes());
 
-			try {
-				fileMeta.setBytes(mpf.getBytes());
+					// copy file to local disk (make sure the path
+					// "e.g. D:/temp/files" exists)
+					String directurl = IMAGEPATHProd + product.getId() + "/";
+					String url = webInfPath + directurl;
+					File m = new File(url);
+					m.mkdirs();
+					url += mpf.getOriginalFilename();
+					FileCopyUtils.copy(mpf.getBytes(),
+							new FileOutputStream(url));
+					SGImage sgImage = new SGImage(product, directurl,
+							mpf.getOriginalFilename(), mpf.getSize() / 1024
+									+ " Kb");
+					sgImageRepo.add(sgImage);
+					product.addPhoto(sgImage);
 
-				// copy file to local disk (make sure the path
-				// "e.g. D:/temp/files" exists)
-				String directurl = IMAGEPATHProd + product.getId() + "/";
-				String url = webInfPath + directurl;
-				File m = new File(url);
-				m.mkdirs();
-				url += mpf.getOriginalFilename();
-				FileCopyUtils.copy(mpf.getBytes(), new FileOutputStream(url));
-				SGImage sgImage = new SGImage(product, directurl,
-						mpf.getOriginalFilename(), mpf.getSize() / 1024 + " Kb");
-				sgImageRepo.add(sgImage);
-				product.addPhoto(sgImage);
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// 2.4 add to files
+				files.add(fileMeta);
 			}
-			// 2.4 add to files
-			files.add(fileMeta);
-
 		}
 		// result will be like this
 		// [{"fileName":"app_engine-85x77.png","fileSize":"8 Kb","fileType":"image/png"},...]
@@ -147,36 +150,38 @@ public class FileController {
 			// 2.2 if files > 10 remove the first from the list
 			if (files.size() >= 10)
 				files.pop();
+			if (mpf.getContentType().contains("image")) {
+				// 2.3 create new fileMeta
+				fileMeta = new FileMeta();
+				fileMeta.setFileName(mpf.getOriginalFilename());
+				fileMeta.setFileSize(mpf.getSize() / 1024 + " Kb");
+				fileMeta.setFileType(mpf.getContentType());
 
-			// 2.3 create new fileMeta
-			fileMeta = new FileMeta();
-			fileMeta.setFileName(mpf.getOriginalFilename());
-			fileMeta.setFileSize(mpf.getSize() / 1024 + " Kb");
-			fileMeta.setFileType(mpf.getContentType());
+				try {
+					fileMeta.setBytes(mpf.getBytes());
 
-			try {
-				fileMeta.setBytes(mpf.getBytes());
+					// copy file to local disk (make sure the path
+					// "e.g. D:/temp/files" exists)
+					String directurl = IMAGEPATHColor + color.getId() + "/";
+					String url = webInfPath + directurl;
+					File m = new File(url);
+					m.mkdirs();
+					url += mpf.getOriginalFilename();
+					FileCopyUtils.copy(mpf.getBytes(),
+							new FileOutputStream(url));
+					SGColorImage sgColorImage = new SGColorImage(color,
+							directurl, mpf.getOriginalFilename(), mpf.getSize()
+									/ 1024 + " Kb");
+					sgColorImageRepo.add(sgColorImage);
+					color.addPhoto(sgColorImage);
 
-				// copy file to local disk (make sure the path
-				// "e.g. D:/temp/files" exists)
-				String directurl = IMAGEPATHColor + color.getId() + "/";
-				String url = webInfPath + directurl;
-				File m = new File(url);
-				m.mkdirs();
-				url += mpf.getOriginalFilename();
-				FileCopyUtils.copy(mpf.getBytes(), new FileOutputStream(url));
-				SGColorImage sgColorImage = new SGColorImage(color, directurl,
-						mpf.getOriginalFilename(), mpf.getSize() / 1024 + " Kb");
-				sgColorImageRepo.add(sgColorImage);
-				color.addPhoto(sgColorImage);
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// 2.4 add to files
+				files.add(fileMeta);
 			}
-			// 2.4 add to files
-			files.add(fileMeta);
-
 		}
 		// result will be like this
 		// [{"fileName":"app_engine-85x77.png","fileSize":"8 Kb","fileType":"image/png"},...]
@@ -205,39 +210,40 @@ public class FileController {
 			// 2.2 if files > 10 remove the first from the list
 			if (files.size() >= 10)
 				files.pop();
+			if (mpf.getContentType().contains("image")) {
+				// 2.3 create new fileMeta
+				fileMeta = new FileMeta();
+				fileMeta.setFileName(mpf.getOriginalFilename());
+				fileMeta.setFileSize(mpf.getSize() / 1024 + " Kb");
+				fileMeta.setFileType(mpf.getContentType());
 
-			// 2.3 create new fileMeta
-			fileMeta = new FileMeta();
-			fileMeta.setFileName(mpf.getOriginalFilename());
-			fileMeta.setFileSize(mpf.getSize() / 1024 + " Kb");
-			fileMeta.setFileType(mpf.getContentType());
+				try {
+					fileMeta.setBytes(mpf.getBytes());
 
-			try {
-				fileMeta.setBytes(mpf.getBytes());
+					// copy file to local disk (make sure the path
+					// "e.g. D:/temp/files" exists)
+					String directurl = IMAGEPATHCat + category.getId() + "/";
+					String url = webInfPath + directurl;
+					File m = new File(url);
+					m.mkdirs();
 
-				// copy file to local disk (make sure the path
-				// "e.g. D:/temp/files" exists)
-				String directurl = IMAGEPATHCat + category.getId() + "/";
-				String url = webInfPath + directurl;
-				File m = new File(url);
-				m.mkdirs();
+					url += mpf.getOriginalFilename();
 
-				url += mpf.getOriginalFilename();
+					FileCopyUtils.copy(mpf.getBytes(),
+							new FileOutputStream(url));
+					SGCategoryImage sgCatImage = new SGCategoryImage(category,
+							directurl, mpf.getOriginalFilename(), mpf.getSize()
+									/ 1024 + " Kb");
+					sgCatImageRepo.add(sgCatImage);
+					category.addPhoto(sgCatImage);
 
-				FileCopyUtils.copy(mpf.getBytes(), new FileOutputStream(url));
-				SGCategoryImage sgCatImage = new SGCategoryImage(category,
-						directurl, mpf.getOriginalFilename(), mpf.getSize()
-								/ 1024 + " Kb");
-				sgCatImageRepo.add(sgCatImage);
-				category.addPhoto(sgCatImage);
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// 2.4 add to files
+				files.add(fileMeta);
 			}
-			// 2.4 add to files
-			files.add(fileMeta);
-
 		}
 		// result will be like this
 		// [{"fileName":"app_engine-85x77.png","fileSize":"8 Kb","fileType":"image/png"},...]

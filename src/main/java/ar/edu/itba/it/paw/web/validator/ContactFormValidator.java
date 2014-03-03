@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import ar.edu.itba.it.paw.utils.Utils;
 import ar.edu.itba.it.paw.web.forms.contactForm;
 
 @Component
@@ -24,9 +25,8 @@ public class ContactFormValidator implements Validator {
 			errors.reject("contact.emptyemail");
 		if (form.getPhone() == 0)
 			errors.reject("contact.emptyphone");
-	
-//		if (!Utils.isEmail(form.getEmail()))
-//			errors.reject("contact.badmail");
+		if (!Utils.isEmail(form.getEmail()))
+			errors.reject("contact.badmail");
 
 	}
 }

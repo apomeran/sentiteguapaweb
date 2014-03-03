@@ -55,10 +55,10 @@
 					
 						
 						<dt></dt>
-							<dd style="font-size: 80px; width: 500px; margin-left:55px; font-family: Akronim !important">${product.name}</dd>
+							<dd style="font-size: 42px; width: 800px; margin-left:55px; ">${product.name}</dd>
 							<br><br>
 						<dt></dt>
-							<dd class="pprodprice" style="font-size: 75px; margin-left:245px; margin-top:18px;  width: 500px; font-family: Akronim !important" >$${product.price}0.- </dd> 
+							<dd class="pprodprice" style="font-size: 45px; margin-left:245px; margin-top:18px;  width: 700px; " >$${product.price}0.- </dd> 
 							<br><br><br>
 
 						<dt>Colores</dt>
@@ -66,7 +66,7 @@
 						 
 							<dd>
 							  <div style="width: 500px;">
-							   <div style="float:left;  font-size: 40px;  font-family: Over The Rainbow !important"> - ${color.name} </div>
+							   <div style="float:left;  font-size: 25px;  width:800px; margin-top:0px ; margin-bottom:30px"> - ${color.name} </div>
 								<c:if test="${not empty color.colorimages[0].url}">
 								<div style= "margin-left: 30px ; margin-top: 0px ; width: 50px; height: 50px; display:inline-block">
 									<img width="30" height="30" src="${ pageContext.request.contextPath}/webapp${color.colorimages[0].url}${color.colorimages[0].name}"></img>
@@ -94,9 +94,8 @@
 						</c:forEach>
 						<br><br>
 						<div id="cartbuttons">
-						
 						<div style="">
-							<dd style="font-size: 40px; width: 500px; margin-left:-20px; font-family: Akronim !important">Añadir al Carrito:</dd>
+							<dd style="font-size: 40px; width: 500px; margin-left:-20px; ">Añadir al Carrito:</dd>
 
 						</div>
 						<br>
