@@ -41,7 +41,16 @@
 	<tbody>
 		<c:forEach var="item" items="${itemList}">
 			<tr>
-				<td><strong><c:out value="${item.name}"/> </strong>
+				<td>
+				<strong>
+				<c:choose>
+				  <c:when test="${showingProducts}">
+				  Cod.  
+				       <strong><c:out value=" ${item.code} "/></strong> -
+				  </c:when>
+				</c:choose>
+				  	<c:out value="${item.name}"/> 
+				</strong>
 				<c:choose>
 					<c:when test="${showingColors or showingCategories}">
 					<c:if test="${fn:length(item.products) gt 1}"><c:set var="s" value="s" /></c:if>
@@ -50,11 +59,7 @@
 				</c:choose>
 				<c:choose>
 				  <c:when test="${showingProducts}">
-				  - Categorias: 
-				    <c:forEach var="cat" items="${item.categories}">
-				       <strong><c:out value="${cat.name}  "/></strong> -
-				    </c:forEach>  
-				     Precio: <strong>$ <c:out value="${item.price}"/>.-</strong>
+				     - Precio: <strong>$ <c:out value="${item.price}"/>.-</strong>
 				  </c:when>
 				</c:choose>
 				<div style="float:right;"><a href="${ pageContext.request.contextPath}/bin/admin/${linkAdmin}/edit?id=${item.id}"> <img class="panelicon" src="/s/assets/img/editicon.png"/> Editar </a>

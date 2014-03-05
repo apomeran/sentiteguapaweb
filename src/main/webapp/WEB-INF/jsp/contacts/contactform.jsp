@@ -16,7 +16,7 @@
 			
                         
             <div class="loginUsername control-group">
-                <label class="control-label">Nombre y Apellido:</label>
+                <label class="control-label">*Nombre y Apellido:</label>
                 <div class="controls">
                      <p>
                         <form:input path="contactName" />
@@ -25,7 +25,7 @@
             </div>
             
             <div class="loginUsername control-group">
-                <label class="control-label">Telefono:</label>
+                <label class="control-label">*Telefono:</label>
                 <div class="controls">
                      <p>
                         <form:input path="phone"/>
@@ -34,7 +34,7 @@
             </div>
             
               <div class="loginUsername control-group">
-                <label class="control-label">Email:</label>
+                <label class="control-label">*Email:</label>
                 <div class="controls">
                      <p>
                         <form:input path="email" />

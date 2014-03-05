@@ -64,7 +64,7 @@
           <div style="width: 500px">              
               
             <div class="loginUsername control-group" style="float:left">
-                <label class="control-label">Nombre y Apellido o Razon Social:</label>
+                <label class="control-label">*Nombre y Apellido o Razon Social:</label>
                 <div class="controls">
                      <p>
                         <form:input path="customerName" />
@@ -73,7 +73,7 @@
             </div>
             
             <div class="loginUsername control-group" style="float:right">
-                <label class="control-label">Direccion:</label>
+                <label class="control-label">*Direccion:</label>
                 <div class="controls">
                      <p>
                         <form:input path="address" />
@@ -84,7 +84,7 @@
           <div style="width: 500px">              
 		 
 				  <div class="loginUsername control-group" style="float:left">
-					<label class="control-label">Localidad:</label>
+					<label class="control-label">*Localidad:</label>
 					<div class="controls">
 						 <p>
 							<form:input path="city" />
@@ -93,7 +93,7 @@
 				</div>
 				
 				<div class="loginUsername control-group" style="float:right">
-					<label class="control-label">Provincia:</label>
+					<label class="control-label">*Provincia:</label>
 					<div class="controls">
 						 <p>
 							<form:input path="state" />
@@ -103,7 +103,7 @@
            </div>
 		   
             <div class="loginUsername control-group">
-                <label class="control-label">Telefono:</label>
+                <label class="control-label">*Telefono:</label>
                 <div class="controls">
                      <p>
                         <form:input path="phone" />
@@ -112,7 +112,7 @@
             </div>
             
             <div class="loginUsername control-group">
-                <label class="control-label">Email:</label>
+                <label class="control-label">*Email:</label>
                 <div class="controls">
                      <p>
                         <form:input path="email" />
@@ -130,7 +130,7 @@
             </div>
             
             <div class="loginUsername control-group">
-                <label class="control-label">Aporte:</label>
+                <label class="control-label">*Aporte:</label>
                 <div class="controls">
                      <p>
 	                 	  <select name="ivacondition" path="ivacondition" id="ivaconditionList">
