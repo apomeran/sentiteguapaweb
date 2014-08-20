@@ -9,6 +9,7 @@ public interface ProductRepo extends BaseRepo<Product> {
 	public List<Product> getProductsByCategory(Category category);
 	
 	public List<Product> getAll();
+	public List<Product> getTop15();
 
 	public void add(Product p);
 

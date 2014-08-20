@@ -30,12 +30,12 @@
 								</div>
 								<div class="span10">
 									<a href="${ pageContext.request.contextPath }/bin/product/view?id=${product.id}">
-									  <strong><div style="font-size: 49px; font-family: Tangerine">${product.name}</div></strong>
+									  <strong><div style="font-size: 30px; font-family: 'Happy Monkey'; width: 60%; line-height: 0.9;">${product.name}</div></strong>
 									 </a>
 									<br>
-									<span class="text-muted"> <div style="font-size: 34px; font-family: Tangerine; margin-left:25px">Precio: <strong>$${product.price}0.-</strong></div></span>
-									<span class="text-muted"> <div style="font-size: 26px; font-family: Tangerine; margin-left:37px;margin-top:10px">-Temporada  <strong>${product.season} </strong> 2014-</div></span>
-									<span class="text-muted"> <div style="font-size: 24px; font-family: Tangerine; margin-left:57px;margin-top:10px">Codigo Producto: <strong>${product.code} </strong> </div></span>
+									<span class="text-muted"> <div style="font-size: 24px; font-family: 'Happy Monkey'; margin-left:25px">Precio: <strong>$${product.price}0.-</strong></div></span>
+									<span class="text-muted"> <div style="font-size: 16px; font-family: 'Happy Monkey'; margin-left:37px;margin-top:10px">-Temporada  <strong>${product.season} </strong> 2014-</div></span>
+									<span class="text-muted"> <div style="font-size: 14px; font-family: 'Happy Monkey'; margin-left:57px;margin-top:10px">Codigo Producto: <strong>${product.code} </strong> </div></span>
 
 								</div>
 								<div class="span1 dropdown-user" data-for=".${product.id}class">
@@ -72,10 +72,7 @@
 															<td>Precio</td>
 															<td>$${product.price}0.-</td>
 														</tr>
-														<tr>
-															<td>Unisex</td>
-															<td>${product.unisex}</td>
-														</tr>
+													
 														<tr>
 															<td>Talles Disponibles</td>
 															<td><c:forEach var="size" items="${product.sizes}">
@@ -90,27 +87,20 @@
 															</c:forEach>								
 															</td>
 														</tr>
-														<tr>
-															<td>Categorias</td>
-															<td><c:forEach var="cat" items="${product.categories}">
-																	<c:set var="catid" value="${cat.id}" />
-																    <dd><a href="${ pageContext.request.contextPath }/bin/index/list?query=categories&id=${cat.id}">${cat.name}</a></dd>
-																</c:forEach>								
-															</td>
-														</tr>
+													
 														</tbody>
 													</table>
 												</div>
 											</div>
 										</div>
 										<div class="panel-footer">
-											<button class="btn  btn-primary" type="button" 	data-toggle="tooltip" data-original-title="Compartir"><i class="icon-share icon-white"></i></button>
+											<button class="btn  btn-primary" type="button" 	data-toggle="tooltip" data-original-title="Compartir"><i class="icon-share icon-white"></i> Compartir</button>
 											<span class="pull-right">
 										
 											
 												<a href="${ pageContext.request.contextPath }/bin/product/view?id=${product.id}"><button class="btn btn-warning" type="button"
 														data-toggle="tooltip"
-														data-original-title="Ver mas"><i class="icon-edit icon-white"></i></button></a>
+														data-original-title="Ver mas"><i class="icon-edit icon-white"></i> Ver Producto</button></a>
 												
 											</span>
 											<br><br>
@@ -145,7 +135,7 @@
 											<a href="${ pageContext.request.contextPath }/bin/index/additem?id=${product.id}&catid=${catid}" id="cartcart${count.count}" onclick="cartAction(${count.count})">
 												<button class="btn btn-primary" style="margin-top: -11px;" type="button"
 															data-toggle="tooltip"
-															data-original-title="Añadir al carrito"><i class="icon-shopping-cart "></i>
+															data-original-title="Añadir al carrito"><i class="icon-shopping-cart "></i> Añadir al carrito
 												</button>
 											</a>
 											</div>

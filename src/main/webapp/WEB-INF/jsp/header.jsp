@@ -36,7 +36,7 @@
                             <li class="${mclass}"><a href="${ pageContext.request.contextPath }/bin/index/list">
                                 <strong class="name text-warning">Todos las Categorias</strong>
                                 <br>
-                                <c:if test="${numberOfProducts > 1}"><c:set var="j" value="s" /></c:if>
+                                <c:if test="${numberOfCategories > 1}"><c:set var="j" value="s" /></c:if>
                                 <span class="number muted">${numberOfCategories} categoria${j}</span>
                             </a></li>
 

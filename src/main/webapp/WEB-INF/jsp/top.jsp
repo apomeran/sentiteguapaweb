@@ -17,11 +17,11 @@
           	    <a id="contbtn" style="margin-right:50px" href="${ pageContext.request.contextPath }/bin/index/aboutus">Nosotros</a>
          	    <a id="contbtn" style="margin-right:0px" href="${ pageContext.request.contextPath }/bin/index/contact">Contacto</a>
 
-				<div style="float:right; margin-top:2px; font-size:20px">
+				<div style="float:right; margin-top:-3px; font-size:20px">
 
 				<a href="${ pageContext.request.contextPath }/bin/index/checkout"><button class="btn btn-primary" type="button"
 														data-toggle="tooltip"
-													data-original-title="Ver mas"><i class="icon-shopping-cart icon-white"></i></button></a> ${fn:length(cartOrder.orderLine)} Item(s) - $${cartOrder.total}0.-
+													data-original-title="Ver mas"><i class="icon-shopping-cart icon-white"></i> Carrito</button></a> ${fn:length(cartOrder.orderLine)} Item(s) - $${cartOrder.total}0.-
 				</div>
 			</div>
 		</div>	

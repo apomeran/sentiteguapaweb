@@ -1,5 +1,6 @@
 package ar.edu.itba.it.paw.domain.products;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -44,7 +45,13 @@ public class Category extends PersistentEntity {
 	}
 
 	public Set<Product> getProducts() {
-		return products;
+		Set<Product> visibleProducts = new HashSet<Product>();
+		for (Product product : products) {
+			if (product.isVisible() == 1)
+				visibleProducts.add(product);
+			
+		}
+		return visibleProducts;
 	}
 
 	public void setProducts(Set<Product> products) {

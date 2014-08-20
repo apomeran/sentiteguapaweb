@@ -32,6 +32,7 @@ public class Product extends PersistentEntity {
 	private List<ProductColor> colors;
 	private int stock;
 	private int code;
+	private int visible;
 
 	@Enumerated(EnumType.STRING)
 	private Unisex unisex = Unisex.MUJER; // By Default
@@ -51,6 +52,7 @@ public class Product extends PersistentEntity {
 		setSeason(season);
 		setSizes(sizes);
 		setCode(code);
+		setVisible(1);
 	}
 
 	public Product() {
@@ -139,5 +141,14 @@ public class Product extends PersistentEntity {
 	public void setCode(int code) {
 		this.code = code;
 	}
+
+	public int isVisible() {
+		return visible;
+	}
+
+	public void setVisible(int i) {
+		this.visible = i;
+	}
+	
 
 }

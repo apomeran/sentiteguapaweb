@@ -84,22 +84,23 @@ public class IndexController extends BaseController {
 
 		EnhancedModelAndView mav = generateContext("Sentite Guapa", true, true,
 				"index/list");
-
+		
 		if (query == null) {
 			mav = generateContext("Sentite Guapa", true, true, "index/catlist");
 			mav.addObject("categoryList", catRepo.getAll());
 			mav.addObject("cartOrder", getCart(session));
+			mav.addObject("productList", productRepo.getAll());
 
 			return mav;
 		}
 
 		if (query.equals("categories")) {
-			mav.addObject("productList", catRepo.get(catId).getProducts());
-			mav.addObject("catid", catId);
+			mav.addObject("productList", productRepo.getAll());
+			//mav.addObject("catid", catId);
 
 		} else {
-
 			mav.addObject("productList", productRepo.getAll());
+
 			mav.addObject("tab_all", true);
 		}
 		mav.addObject("cartOrder", getCart(session));

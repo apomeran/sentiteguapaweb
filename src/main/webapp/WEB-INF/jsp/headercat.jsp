@@ -18,10 +18,10 @@
 
     <script type="text/javascript" src="${ pageContext.request.contextPath }/assets/js/jquery.js"></script>
    
-    <script type="text/javascript" src="${ pageContext.request.contextPath }/assets/js/bootstrap.js"></script>
 	<link rel="stylesheet" type="text/css" href="${ pageContext.request.contextPath }/assets/engine1/style.css" />
 	<script type="text/javascript" src="${ pageContext.request.contextPath }/assets/engine1/jquery.js"></script>
     <script type="text/javascript" src="${ pageContext.request.contextPath }/assets/js/f.js"></script>
+        <script type="text/javascript" src="${ pageContext.request.contextPath }/assets/js/bootstrap.js"></script>
     
     <title>${documentTitle}</title>
 	<body style="font-family: Happy Monkey !important">
@@ -38,12 +38,29 @@
 		<div id="centralbanner" style="width:100%">
 				<div id="sliderFrame">
 						<div id="slider">
-							<img src="${ pageContext.request.contextPath }/assets/slider/d.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/a.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/b.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/e.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/f.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/g.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/1.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/a.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/2.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/b.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/3.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/c.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/4.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/d.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/5.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/d.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/6.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/7.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/e.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/f.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/g.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/i.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/j.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/k.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/oo.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/p.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/q.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/rr.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa/ss.jpg" />
 						</div>
 						<!--Custom navigation buttons on both sides-->
 						<div class="group1-Wrapper">
@@ -58,7 +75,6 @@
 						</div>
 				</div>
 					<script type="text/javascript">
-						//The following script is for the group 2 navigation buttons.
 						function switchAutoAdvance() {
 							imageSlider.switchAuto();
 							switchPlayPauseClass();
@@ -77,33 +93,7 @@
                 <c:when test="${sidebar}">
                     <div class="tabbable tabs-left">
                         <ul class="nav nav-tabs">
-                            <c:if test="${tab_all}">
-                                <c:set var="mclass" value="active" />
-                            </c:if>
-                            <li class="${mclass}"><a href="${ pageContext.request.contextPath }/bin/index/list">
-                                <strong class="name text-warning">Todos las Categorias</strong>
-                                <br>
-                                <c:if test="${numberOfProducts > 1}"><c:set var="j" value="s" /></c:if>
-                                <span class="number muted">${numberOfCategories} categoria${j}</span>
-                            </a></li>
-
-                            <c:forEach var="category" items="${categoriesList}">
-                                <c:if test="${fn:length(category.products) gt 0}">
-                                    <c:set var="mclass" value="" />
-                                    <c:if test="${catid == category.id}">
-                                        <c:set var="mclass" value="active" />
-                                    </c:if>
-                                    <li class="${mclass}">
-                                        <a href="${ pageContext.request.contextPath }/bin/index/list?query=categories&id=${category.id}">
-                                            <strong class="name">${fn:escapeXml(category.name)}</strong>
-                                            <br>
-                                            <c:if test="${fn:length(category.products) gt 1}"><c:set var="s" value="s" /></c:if>
-                                            <span class="number muted">${fn:length(category.products)} producto${s}</span>
-                                        </a>
-                                    </li>
-                                </c:if>
-                            </c:forEach>
-                            <br>
+                       
                             <c:import url="../facebook/likebox.jsp" />
                             
                             

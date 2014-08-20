@@ -33,7 +33,7 @@ public class HibernateProductRepo extends AbstractHibernateRepo implements
 
 	@Override
 	public List<Product> list() {
-		return this.find("from Product");
+		return this.find("from Product where visible = 1");
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class HibernateProductRepo extends AbstractHibernateRepo implements
 	}
 
 	private List<Product> getProductsByName(String name) {
-		return find("from Product where lower(name) like ? ", name);
+		return find("from Product where visible = 1 AND lower(name) like ? ", name);
 	}
 
 	@Override
@@ -77,7 +77,12 @@ public class HibernateProductRepo extends AbstractHibernateRepo implements
 
 	@Override
 	public void delete(Product p) {
-		super.delete(p);
+		p.setVisible(0);
+	}
+
+	@Override
+	public List<Product> getTop15() {
+		return this.find("from Product WHERE visible = 1 LIMIT 15");
 	}
 
 }

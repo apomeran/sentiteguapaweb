@@ -55,13 +55,13 @@
 					
 						
 						<dt></dt>
-							<dd style="font-size: 42px; width: 800px; margin-left:55px; ">${product.name}</dd>
+							<dd style="font-size: 42px; width: 120%; line-height:0.9; margin-left:55px; ">${product.name}</dd>
 							<br><br>
 						<dt></dt>
-							<dd class="pprodprice" style="font-size: 45px; margin-left:245px; margin-top:18px;  width: 700px; " >$${product.price}0.- </dd> 
+							<dd class="pprodprice" style="font-size: 45px; margin-left:53px; margin-top:18px;  width: 700px; " >Precio: $${product.price}0.- </dd> 
 							<br><br><br>
 
-						<dt>Colores</dt>
+						<dt>Colores Disponibles</dt>
 						<c:forEach var="color" items="${product.colors}">
 						 
 							<dd>
@@ -86,14 +86,9 @@
 							<dd style="width: 500px">${size.name}(${size.code})</dd>
 							</c:forEach>
 
-						<dt>Unisex</dt>
-							<dd>${product.unisex}</dd>
-						<dt>Categoria(s)</dt>
-						<c:forEach var="pr" items="${product.categories}">
-						<a href="${ pageContext.request.contextPath }/bin/index/list?query=categories&id=${pr.id}">	<dd>${pr.name} </dd></a>
-						</c:forEach>
+					
 						<br><br>
-						<div id="cartbuttons">
+						<div id="cartbuttons" style="margin-left:68px !important">
 						<div style="">
 							<dd style="font-size: 40px; width: 500px; margin-left:-20px; ">Añadir al Carrito:</dd>
 
@@ -123,8 +118,8 @@
 						<input type="number" id="quantity" name="quantity" min="1" max="2000" placeholder="Cantidad de productos" value="1"><br>
 						<a id="cartcart" href="${ pageContext.request.contextPath }/bin/product/additem?id=${product.id}"><button class="btn btn-primary" type="button"
 														data-toggle="tooltip"
-														data-original-title="Añadir al carrito"><i class="icon-shopping-cart "></i></button></a>
-						Agregar al carrito
+														data-original-title="Añadir al carrito"><i class="icon-shopping-cart "></i> Agregar al carrito</button></a>
+						
 						
 						</div>
 					</dl>
@@ -140,7 +135,7 @@
             Disculpas, este Producto no existe! 
         </c:otherwise>
     </c:choose>
-	<br><br><br><br><br><br><br><br>	<br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br>
 
     <hr>
 
