@@ -1,4 +1,5 @@
 			
+			<img src="${ pageContext.request.contextPath }/assets/footer/f.png" />
 			
 			<div id="copyrightInner">
 			<hr>

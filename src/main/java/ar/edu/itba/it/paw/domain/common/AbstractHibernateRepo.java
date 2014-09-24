@@ -34,6 +34,19 @@ public abstract class AbstractHibernateRepo {
 	}
 
 	@SuppressWarnings("unchecked")
+	public <T> List<T> Limitedfind(String hql, int maxRows, Object... params) {
+		Session session = getSession();
+
+		Query query = session.createQuery(hql);
+		query.setMaxResults(maxRows);
+		for (int i = 0; i < params.length; i++) {
+			query.setParameter(i, params[i]);
+		}
+		List<T> list = query.list();
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
 	public <T> List<T> findMax(String hql, int maxResult, Object... params) {
 		Session session = getSession();
 

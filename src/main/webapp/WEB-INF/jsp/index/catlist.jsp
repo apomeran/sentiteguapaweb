@@ -12,23 +12,22 @@
       <div id="categorycontent" style="width: 717px; ">
 	  <c:choose>
         <c:when test="${fn:length(productList) gt 0}">
-    
-           <c:forEach var="product" items="${productList}">
+           <c:forEach var="i" begin="0" end="7">
 				<div class="single_category" style="width: 138px; height:180px; margin-bottom: 20px;  margin-left: 3px; display:inline-block">
 		     		 <div>
-		     		   <c:if test="${not empty product.prodimages[0].url}">
-								<img border="0" src="${ pageContext.request.contextPath }/webapp${product.prodimages[0].url}${product.prodimages[0].name}" width="146" height="214">
+		     		   <c:if test="${not empty productList[i].prodimages[0].url}">
+								<img border="0" src="${ pageContext.request.contextPath }/webapp${productList[i].prodimages[0].url}${productList[i].prodimages[0].name}" width="146" height="214">
 							  </c:if> 
-		        			  <c:if test="${empty product.prodimages[0].url}">
+		        			  <c:if test="${empty productList[i].prodimages[0].url}">
 								  <img border="0"  width="146" height="214"  src="${ pageContext.request.contextPath}/assets/img/noimage.jpg"></img>
 						 	  </c:if> 
-						 	  <div style="font-size: 15px; margin-top:15px; text-align:center;"> Precio: $${product.price}.- </div>
+						 	  <div style="font-size: 15px; margin-top:15px; text-align:center;"> Precio: $${productList[i].price}.- </div>
 						
 					</div>
-					<a href="${ pageContext.request.contextPath }/bin/product/view?id=${product.id}">
-							<div style="font-size: 13px; text-align:center;"> ${fn:substring(product.name,0,18)}        
+					<a href="${ pageContext.request.contextPath }/bin/product/view?id=${productList[i].id}">
+							<div style="font-size: 13px; text-align:center;"> ${fn:substring(productList[i].name,0,18)}        
 							 <c:choose>
-							 <c:when test="${fn:length(product.name) gt 18}"> 
+							 <c:when test="${fn:length(productList[i].name) gt 18}"> 
 							 ..
 							  </c:when>
 				

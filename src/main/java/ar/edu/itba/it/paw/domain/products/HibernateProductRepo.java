@@ -55,7 +55,8 @@ public class HibernateProductRepo extends AbstractHibernateRepo implements
 	}
 
 	private List<Product> getProductsByName(String name) {
-		return find("from Product where visible = 1 AND lower(name) like ? ", name);
+		return find("from Product where visible = 1 AND lower(name) like ? ",
+				name);
 	}
 
 	@Override
@@ -83,6 +84,11 @@ public class HibernateProductRepo extends AbstractHibernateRepo implements
 	@Override
 	public List<Product> getTop15() {
 		return this.find("from Product WHERE visible = 1 LIMIT 15");
+	}
+
+	@Override
+	public List<Product> getTopN(int n) {
+		return this.Limitedfind("from Product WHERE visible = 1 ", n);
 	}
 
 }

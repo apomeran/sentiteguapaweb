@@ -89,7 +89,7 @@ public class IndexController extends BaseController {
 			mav = generateContext("Sentite Guapa", true, true, "index/catlist");
 			mav.addObject("categoryList", catRepo.getAll());
 			mav.addObject("cartOrder", getCart(session));
-			mav.addObject("productList", productRepo.getAll());
+			mav.addObject("productList", productRepo.getTopN(2));
 
 			return mav;
 		}

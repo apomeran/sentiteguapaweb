@@ -7,8 +7,9 @@ import ar.edu.itba.it.paw.domain.common.BaseRepo;
 public interface ProductRepo extends BaseRepo<Product> {
 
 	public List<Product> getProductsByCategory(Category category);
-	
+
 	public List<Product> getAll();
+
 	public List<Product> getTop15();
 
 	public void add(Product p);
@@ -16,5 +17,7 @@ public interface ProductRepo extends BaseRepo<Product> {
 	public List<Product> getProductsByQuery(String query);
 
 	public void delete(Product p);
+
+	public List<Product> getTopN(int n);
 
 }

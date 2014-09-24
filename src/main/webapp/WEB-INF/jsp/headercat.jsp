@@ -38,25 +38,11 @@
 		<div id="centralbanner" style="width:100%">
 				<div id="sliderFrame">
 						<div id="slider">
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/1.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/2.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/3.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/4.jpg" />
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/5.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/6.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/7.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/8.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/9.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/10.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/11.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/12.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/13.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/14.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/15.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/16.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/17.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/18.jpg" />	
-							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/19.jpg" />	
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/01.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/02.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/03.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/04.jpg" />
+							<img src="${ pageContext.request.contextPath }/assets/slider/SentiteGuapa2/05.jpg" />	
 						</div>
 						<!--Custom navigation buttons on both sides-->
 						<div class="group1-Wrapper">
